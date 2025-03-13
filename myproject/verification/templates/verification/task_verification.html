@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Task-Based Verification</h2>
+    <button id="send-task" class="btn">Send Task-Based Verification</button>
+    
+    <div id="task-section" class="hidden">
+        <p id="task-text">Your task will appear here.</p>
+        <input type="text" id="task-input" placeholder="Enter your answer" />
+        <button id="submit-task" class="btn">Submit</button>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 400px;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+    }
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .hidden {
+        display: none;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 10px;
+    }
+</style>
+
+<script>
+    document.getElementById("send-task").addEventListener("click", function() {
+        document.getElementById("task-section").classList.remove("hidden");
+        document.getElementById("task-text").innerText = "(Task will be displayed here)"; // Replace with actual task
+    });
+</script>
+{% endblock %}
