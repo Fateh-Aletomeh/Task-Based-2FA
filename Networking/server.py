@@ -1,6 +1,7 @@
 from states import ServerState
 from constants import *
 import socket
+import ssl
 import time
 import json
 
@@ -10,6 +11,11 @@ class Server:
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.bind((host, port))
         self.sock.listen()
+
+        context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+        context.load_cert_chain(certfile=certfile, keyfile=keyfile)
+        self.sock = context.wrap_socket(self.sock, server_side=True)
+
         self.state = ServerState.READY
         print(f"Server listening on {host}:{port}")
     

@@ -1,5 +1,6 @@
 from states import ClientState
 import socket
+import ssl
 import time
 import json
 
@@ -10,6 +11,9 @@ class Client:
         self.state = ClientState.READY
         self.HOST = host
         self.PORT = port
+
+        context = ssl.create_default_context()
+        self.sock = context.wrap_socket(self.sock, server_hostname=self.HOST)
     
     # Main function
     def run(self) -> None:
@@ -72,7 +76,7 @@ class Client:
         try:
             outcome = self.sock.recv(1024)
             outcome = json.loads(outcome.decode())
-            print(f"Recieved outcome: {outcome}")
+            print(f"Received outcome: {outcome}")
             return outcome
         except Exception as e:
             print(f"Error when trying to receive outcome\n{e}")
