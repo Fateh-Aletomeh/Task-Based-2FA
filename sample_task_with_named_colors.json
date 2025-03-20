@@ -1,0 +1,78 @@
+{
+    "taskId": "task-5678",
+    "circles": [
+        {
+            "id": "circle-0",
+            "color": "red"
+        },
+        {
+            "id": "circle-1",
+            "color": "orange"
+        },
+        {
+            "id": "circle-2",
+            "color": "pink"
+        },
+        {
+            "id": "circle-3",
+            "color": "purple"
+        },
+        {
+            "id": "circle-4",
+            "color": "yellow"
+        },
+        {
+            "id": "circle-5",
+            "color": "green"
+        },
+        {
+            "id": "circle-6",
+            "color": "yellow"
+        },
+        {
+            "id": "circle-7",
+            "color": "green"
+        },
+        {
+            "id": "circle-8",
+            "color": "blue"
+        },
+        {
+            "id": "circle-9",
+            "color": "red"
+        },
+        {
+            "id": "circle-10",
+            "color": "blue"
+        },
+        {
+            "id": "circle-11",
+            "color": "blue"
+        },
+        {
+            "id": "circle-12",
+            "color": "green"
+        },
+        {
+            "id": "circle-13",
+            "color": "yellow"
+        },
+        {
+            "id": "circle-14",
+            "color": "orange"
+        },
+        {
+            "id": "circle-15",
+            "color": "pink"
+        }
+    ],
+    "creationDate": "2025-03-19T18:56:45.947557",
+    "expirationDate": "2025-03-19T19:01:45.947557",
+    "expectedResponse": [
+        "circle-0",
+        "circle-11",
+        "circle-8",
+        "circle-6",
+        "circle-15"
+    ]
+}
