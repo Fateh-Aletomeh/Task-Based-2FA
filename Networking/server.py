@@ -5,6 +5,11 @@ import ssl
 import time
 import json
 
+from pathlib import Path
+parent_dir = Path(__file__).resolve().parent.parent
+import encryption_utils as enc_utils
+import task_gen
+
 
 class Server:
     def __init__(self, host, port) -> None:
@@ -13,7 +18,7 @@ class Server:
         self.sock.listen()
 
         context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-        context.load_cert_chain(certfile=certfile, keyfile=keyfile)
+        context.load_cert_chain(certfile="certfile.pem", keyfile="keyfile.pem")
         self.sock = context.wrap_socket(self.sock, server_side=True)
 
         self.state = ServerState.READY
@@ -26,7 +31,7 @@ class Server:
         print(f"Connection from {addr}")
 
         while True:
-            task_data = self.genTask()
+            task_data: json = task_gen.generate_json_file()
             self.sendTask(conn, task_data, 1)
             response = self.receiveResponse(conn)
             outcome = self.handleResponse(response)
@@ -34,9 +39,6 @@ class Server:
             if outcome == 1: break
         
         conn.close()
-    
-    def genTask(self) -> str:
-        return "This is just a placeholder."
     
     def sendTask(self, conn, task_data, attempt) -> None:
         curr_time = time.time()
