@@ -37,43 +37,57 @@
 
 ## Message contents and encoding
 
-### Send Task
+### Format of Task Sent to Phone App
 ```
-TASK: { 
-        "attempt": <attempt>,
-        "task_id": <task_id>,
-        "task_data": <task_data>,
-        "task": <task>,
-        "curr_time": <curr_time>,
-        "exp_time": <exp_time>
-      }
+TASK: {
+"taskId" : <string of task id>,
+"circles" : <list of circles -> example shown below>,
+"creationDate": <creation date and time>
+"expirationDate": <expiration date and time>
+"expectedResponse": <list of circle ids>
+}
 
-<attempt> is either 1, 2 or 3
-<task_id> is ...
-<task_data> is ...
-<task> is ...
-<curr_time> is a number of seconds since Unix epoch
-<exp_time> is a number of seconds since Unix epoch
+Circles Example:
+"circles": [
+        {
+            "id": "circle-0",
+            "color": "red"
+        },
+        {
+            "id": "circle-1",
+            "color": "orange"
+        },
+        {
+            "id": "circle-2",
+            "color": "pink"
+        } ]
 ```
+
+### Format of Template Sent to Website
+```
+TEMPLATE: Same as the task sent to phone but without the expectedResponse list
+```
+
 
 ### Receive Response
 ```
 RESPONSE: {
             "task_id": <task_id>,
-            "resp_time": <resp_time>,
             "user_resp": <user_resp>
+            "attempt": <current number of attempt>
           }
 
-<task_id> is ...
-<resp_time> is a number of seconds since Unix epoch
-<user_resp> is ...
+User Response Example:
+"user_resp": ["circle-0","circle-11","circle-5","circle-8"]
+
 ```
 
-### User Approved
+### Feedback
 ```
-OUTCOME: {
-            "outcome": <outcome>
+FEEDBACK:{
+            "task_id": <task_id>
+            "feedback": <succeeded: 1 / failure: 0>
+            "attempt": <the number of attempts this feedback is for>
          }
-
-<outcome> is either 0 (for rejected) or 1 (for approved)
 ```
+
