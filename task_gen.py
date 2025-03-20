@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 COLOR_NAMES = [
     "red", "green", "blue", "yellow", "orange", 
-    "purple", "pink", "brown", "cyan"
+    "purple", "pink"
 ]
 
 def secure_sample(population, k):
