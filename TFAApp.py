@@ -33,7 +33,7 @@ class LoginScreen(Screen):
         self.layout = BoxLayout(orientation='vertical', padding=20, spacing=15)
         
         # Add app logo
-        logo = Image(source='Graphics/Logo.png', size_hint=(1, 0.3))
+        logo = Image(source='static/img/Logo.png', size_hint=(1, 0.3))
         self.layout.add_widget(logo)
         
         # Add welcome text
@@ -95,9 +95,9 @@ class StaticCircleWidget(Image):
         self.color = color
         # Use highlighted image for correct circles, regular image for others
         if is_correct:
-            self.source = f"Graphics/highlighted_{color}_circle.png"
+            self.source = f"static/img/highlighted_{color}_circle.png"
         else:
-            self.source = f"Graphics/{color}_circle.png"
+            self.source = f"static/img/{color}_circle.png"
         self.size_hint = (None, None)
         self.size = (80, 80)  # Slightly smaller size for grid layout
         
@@ -131,7 +131,7 @@ class TaskScreen(Screen):
         
         # Add background image using custom class
         self.background = BackgroundImage(
-            source='Graphics/Task_Background.png',
+            source='static/img/Task_Background.png',
             fit_mode="fill",  # "fill" scales to fill the container
             size_hint=(0.8, 0.8),
             pos_hint={'center_x': 0.5, 'center_y': 0.5}

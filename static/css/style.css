@@ -1,0 +1,128 @@
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #333333;
+    margin-top: 20px;
+}
+
+.btn {
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #4A86E8;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3a76d8;
+}
+
+.btn-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #3d9c40;
+}
+
+.btn-danger {
+    background-color: #F44336;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #e53a2e;
+}
+
+.hidden {
+    display: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+    background-image: url('../img/Task_Background.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: auto;
+    transition: transform 0.2s, opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.circle:hover {
+    transform: scale(1.05);
+}
+
+.circle.selected {
+    border: 3px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.circle-red { background-color: #F44336; }
+.circle-blue { background-color: #0512ff; }
+.circle-green { background-color: #00730b; }
+.circle-yellow { background-color: #FFEB3B; }
+.circle-purple { background-color: #9C27B0; }
+.circle-orange { background-color: #f07400; }
+.circle-pink {background-color: #FFC0CB;}
+
+#timer {
+    font-size: 18px;
+    color: #F44336;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

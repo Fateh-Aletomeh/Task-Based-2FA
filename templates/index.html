@@ -1,0 +1,40 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-Based 2FA Authentication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Task-Based 2FA Authentication</h1>
+        <button id="fetch-task" class="btn btn-primary">Fetch Authentication Task</button>
+        
+        <div id="task-section" class="hidden">
+            <h3>Complete the authentication task</h3>
+            <p>Select the circles that match the highlighted ones on your mobile device</p>
+            
+            <div id="circle-grid" class="grid-container">
+                <!-- Circles will be added here dynamically -->
+            </div>
+            
+            <div id="timer">Time remaining: 5:00</div>
+            
+            <div class="button-container">
+                <button id="submit-task" class="btn btn-success">Submit</button>
+                <button id="refresh-task" class="btn btn-primary">Refresh Task</button>
+                <button id="cancel-task" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+        
+        <div id="result-section" class="hidden">
+            <h3 id="result-message"></h3>
+            <button id="try-again" class="btn btn-primary">Try Again</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
